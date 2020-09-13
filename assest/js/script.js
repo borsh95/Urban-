@@ -7,18 +7,31 @@ let slider = new Swiper('.swiper-container', {
 	},
 });
 
-//novbar
+
+//menu
+const menuHeader = document.querySelector('.header__menu');
 const hamburger = document.querySelector('.hamburger');
-const closeBtnNav = document.querySelector('.navbar__btn-close');
-const navbarEl = document.querySelector('.navbar');
 
 hamburger.addEventListener('click', toggleNav, false);
-closeBtnNav.addEventListener('click', toggleNav, false);
+
+window.addEventListener('resize', function () {
+
+	if (window.outerWidth > 768 && hamburger.classList.contains('active')) {
+		toggleNav();
+	}
+}, false);
 
 function toggleNav() {
 	hamburger.classList.toggle('active');
-	navbarEl.classList.toggle('active');
+	menuHeader.classList.toggle('active');
 }
+
+//sci
+const sciToggle = document.querySelector('.sci__toggle');
+
+sciToggle.addEventListener('click', function () {
+	sciToggle.classList.toggle('active');
+}, false);
 
 //video 
 const playBtn = document.querySelector('.play');
